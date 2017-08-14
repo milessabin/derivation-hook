@@ -67,6 +67,13 @@ lazy val core = crossProject.crossType(CrossType.Pure)
   .settings(moduleName := "export-hook")
   .settings(coreSettings:_*)
   .settings(mimaSettings:_*)
+  .settings(
+    scalacOptions in Test += "-Xfatal-warnings",
+    wartremoverWarnings in (Test, compile) := Seq(
+      Wart.Null,
+      Wart.ExplicitImplicitTypes
+    )
+  )
   .jsSettings(commonJsSettings:_*)
   .jvmSettings(commonJvmSettings:_*)
 
