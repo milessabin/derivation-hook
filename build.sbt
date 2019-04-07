@@ -11,7 +11,7 @@ import com.typesafe.tools.mima.core.ProblemFilters._
 lazy val buildSettings = Seq(
   organization := "org.typelevel",
   scalaVersion := "2.12.8",
-  crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.8", "2.13.0-M5"),
+  crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.8", "2.13.0-RC1"),
   sourceGenerators in Compile += Def.task(Boilerplate.genCode((sourceManaged in Compile).value)).taskValue
 )
 
@@ -39,12 +39,11 @@ lazy val commonSettings = Seq(
     "org.typelevel"        %%% "macro-compat"  % "1.1.1",
     "com.chuusai"          %%% "shapeless"     % "2.3.3"  % "test",
     "com.github.mpilquist" %%% "simulacrum"    % "0.14.0" % "test",
-    "org.scalatest"        %%% "scalatest"     % "3.0.6-SNAP4"  % "test",
+    "org.scalatest"        %%% "scalatest"     % "3.0.8-RC2"  % "test",
     "org.scalacheck"       %%% "scalacheck"    % "1.14.0" % "test",
 
-    compilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8")
+    compilerPlugin("org.typelevel" %% "kind-projector" % "0.10.0")
   ),
-
   scmInfo :=
     Some(ScmInfo(
       url("https://github.com/milessabin/export-hook"),
