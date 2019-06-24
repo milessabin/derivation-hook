@@ -11,7 +11,7 @@ import com.typesafe.tools.mima.core.ProblemFilters._
 lazy val buildSettings = Seq(
   organization := "org.typelevel",
   scalaVersion := "2.12.8",
-  crossScalaVersions := Seq("2.11.12", "2.12.8", "2.13.0-RC1"),
+  crossScalaVersions := Seq("2.11.12", "2.12.8", "2.13.0"),
   sourceGenerators in Compile += Def.task(Boilerplate.genCode((sourceManaged in Compile).value)).taskValue
 )
 
@@ -37,11 +37,11 @@ lazy val commonSettings = Seq(
   ),
   libraryDependencies ++= Seq(
     "com.chuusai"          %%% "shapeless"     % "2.3.3"  % "test",
-    "com.github.mpilquist" %%% "simulacrum"    % "0.16.0" % "test",
-    "org.scalatest"        %%% "scalatest"     % "3.0.8-RC2"  % "test",
+    "com.github.mpilquist" %%% "simulacrum"    % "0.19.0" % "test",
+    "org.scalatest"        %%% "scalatest"     % "3.0.8"  % "test",
     "org.scalacheck"       %%% "scalacheck"    % "1.14.0" % "test",
 
-    compilerPlugin("org.typelevel" %% "kind-projector" % "0.10.0")
+    compilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3")
   ),
   scmInfo :=
     Some(ScmInfo(
