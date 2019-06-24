@@ -21,8 +21,6 @@ import scala.language.experimental.macros
 import scala.annotation.StaticAnnotation
 import scala.reflect.macros.whitebox
 
-import macrocompat.bundle
-
 // https://issues.scala-lang.org/browse/SI-7332
 case class Export0[+T](instance: T) extends AnyVal
 case class Export1[+T](instance: T) extends AnyVal
@@ -56,7 +54,6 @@ class imports extends StaticAnnotation {
   def macroTransform(annottees: Any*): Any = macro ExportMacro.importsImpl
 }
 
-@bundle
 class ExportMacro(val c: whitebox.Context) {
   import c.universe._
 
@@ -441,7 +438,6 @@ class ExportMacro(val c: whitebox.Context) {
   }
 }
 
-@bundle
 trait ImportAux{
   val c: whitebox.Context
   import c.universe._
@@ -488,7 +484,6 @@ trait ImportAux{
   }
 }
 
-@bundle
 trait ExportAux{
   val c: whitebox.Context
   import c.universe._

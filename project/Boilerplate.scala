@@ -105,9 +105,7 @@ object Boilerplate {
         |
         |import scala.language.experimental.macros
         |import scala.reflect.macros.whitebox
-        |import macrocompat.bundle
         |
-        |@bundle
         |class ExportsImplExpr(val c: whitebox.Context) extends ExportAux{
         |  import c.universe._ 
         |
@@ -131,9 +129,7 @@ object Boilerplate {
         |
         |import scala.language.experimental.macros
         |import scala.reflect.macros.whitebox
-        |import macrocompat.bundle
         |
-        |@bundle
         |class ImportsImplExpr(val c: whitebox.Context) extends ImportAux {
         |  import c.universe._ 
         |
